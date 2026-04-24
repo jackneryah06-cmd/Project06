@@ -40,10 +40,10 @@ void distance_2d(float x1, float y1, float x2, float y2)
     printf("Distance entre les points : %.4f\n", d);
 }
 
-void affichage (long)
+int affichage(int argc, char *argv[]) 
 {
-      if (argc < 2) {
-        printf("Usage: %s [commande] [valeurs...]\n", argv[0]);
+    if (argc < 2) {
+        printf("Usage: %s [log|exp|solve|dist] [valeurs...]\n", argv[0]);
         return 1;
     }
 
@@ -55,18 +55,18 @@ void affichage (long)
         if (argc < 5) return 1;
         second_degre(atof(argv[2]), atof(argv[3]), atof(argv[4]));
     }
-    else if (strcmp(argv[1], "dist") == 0) {
+    else if (strcmp(argv[1], "dist") == 0) 
+    {
         if (argc < 6) return 1;
         distance_2d(atof(argv[2]), atof(argv[3]), atof(argv[4]), atof(argv[5]));
     }
     else {
         printf("Commande inconnue.\n");
     }
+    return 0;
 }
 
 int main(int argc, char *argv[]) 
 {
-  int c;
-  affichage (c)
-  return 0;
+    return affichage(argc, argv);
 }
